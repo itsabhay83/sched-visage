@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,32 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				success: 'hsl(var(--success))',
+				warning: 'hsl(var(--warning))',
+				info: 'hsl(var(--info))',
+				error: 'hsl(var(--error))',
+				'gantt-bg': 'hsl(var(--gantt-bg))',
+				'gantt-grid': 'hsl(var(--gantt-grid))',
+				'gantt-text': 'hsl(var(--gantt-text))',
+				process: {
+					0: 'hsl(var(--process-0))',
+					1: 'hsl(var(--process-1))',
+					2: 'hsl(var(--process-2))',
+					3: 'hsl(var(--process-3))',
+					4: 'hsl(var(--process-4))',
+					5: 'hsl(var(--process-5))',
+					6: 'hsl(var(--process-6))',
+					7: 'hsl(var(--process-7))',
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-accent': 'var(--gradient-accent)',
+			},
+			boxShadow: {
+				'glow': 'var(--shadow-glow)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
