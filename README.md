@@ -1,73 +1,162 @@
-# Welcome to your Lovable project
 
-## Project info
+🖥️ OS Scheduling Algorithms Visualizer
+A web-based interactive tool to understand and simulate Operating System Scheduling Algorithms such as FCFS, SJF, Priority, and Round Robin. It is built with React + TailwindCSS and features a theme toggle (Light, Dark, Matte) for better accessibility.
 
-**URL**: https://lovable.dev/projects/0884daea-1079-461f-9ce8-e145da1bcf3c
+🚀 Features
+🔄 Multiple Scheduling Algorithms:
 
-## How can I edit this code?
+First Come First Serve (FCFS)
 
-There are several ways of editing your application.
+Shortest Job First (SJF)
 
-**Use Lovable**
+Priority Scheduling
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0884daea-1079-461f-9ce8-e145da1bcf3c) and start prompting.
+Round Robin
 
-Changes made via Lovable will be committed automatically to this repo.
+🎨 Theme Toggle (Light / Dark / Matte)
 
-**Use your preferred IDE**
+📊 Gantt Chart Visualization
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+📈 Displays Waiting Time, Turnaround Time, and CPU Utilization
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+⚡ Fast & Responsive UI built with React + TailwindCSS
 
-Follow these steps:
+🧑‍💻 Easy to extend and add new algorithms
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+🛠️ Tech Stack
+React.js – Frontend framework
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+TailwindCSS – Styling with utility classes
 
-# Step 3: Install the necessary dependencies.
-npm i
+Shadcn/UI – Prebuilt components (note: currently implemented with custom CSS due to single-file build limitations)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Framer Motion – Smooth animations (note: currently implemented with CSS transitions due to single-file build limitations)
+
+TypeScript (optional, if included in your project)
+
+📂 Project Structure
+.
+├── src
+│ ├── components # Navbar, Sidebar, GanttChart, ThemeToggle
+│ ├── algorithms # Scheduling algorithms implementation
+│ ├── hooks # Theme and custom hooks
+│ ├── App.tsx # Main application entry
+│ └── index.css # Tailwind + custom CSS
+├── public # Static assets
+├── tailwind.config.js
+├── package.json
+└── README.md
+
+⚡ Installation & Setup
+Clone the repository
+
+git clone [https://github.com/itsabhay83/os-scheduler-visualizer.git](https://github.com/itsabhay83/os-scheduler-visualizer.git)
+cd os-scheduler-visualizer
+
+Install dependencies
+
+npm install
+
+Start development server
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+Open in browser
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+http://localhost:8080
 
-**Use GitHub Codespaces**
+🎮 Usage
+Choose an Algorithm from the sidebar, enter processes with their properties, and click "Run Simulation" to view the Gantt chart and performance statistics.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+FCFS (First Come First Serve)
+This non-preemptive algorithm simply executes processes in the order they arrive.
 
-## What technologies are used for this project?
+Example Input Processes
+| Process | Arrival Time | Burst Time |
+|---------|--------------|------------|
+| P1      | 0            | 10         |
+| P2      | 2            | 5          |
+| P3      | 4            | 8          |
 
-This project is built with:
+Simulation Results
+| Metric                   | Value |
+|--------------------------|-------|
+| Average Waiting Time     | 6.33  |
+| Average Turnaround Time  | 14.00 |
+| CPU Utilization          | 100%  |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+SJF (Shortest Job First)
+This non-preemptive algorithm selects the process with the smallest burst time from the queue of available processes.
 
-## How can I deploy this project?
+Example Input Processes
+| Process | Arrival Time | Burst Time |
+|---------|--------------|------------|
+| P1      | 0            | 7          |
+| P2      | 2            | 4          |
+| P3      | 4            | 1          |
+| P4      | 5            | 4          |
 
-Simply open [Lovable](https://lovable.dev/projects/0884daea-1079-461f-9ce8-e145da1bcf3c) and click on Share -> Publish.
+Simulation Results
+| Metric                   | Value |
+|--------------------------|-------|
+| Average Waiting Time     | 4.00  |
+| Average Turnaround Time  | 8.00  |
+| CPU Utilization          | 100%  |
 
-## Can I connect a custom domain to my Lovable project?
+Priority Scheduling
+This non-preemptive algorithm executes processes based on their assigned priority number. A smaller number indicates a higher priority.
 
-Yes, you can!
+Example Input Processes
+| Process | Arrival Time | Burst Time | Priority |
+|---------|--------------|------------|----------|
+| P1      | 0            | 7          | 2        |
+| P2      | 2            | 4          | 1        |
+| P3      | 4            | 1          | 3        |
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Simulation Results
+| Metric                   | Value |
+|--------------------------|-------|
+| Average Waiting Time     | 4.00  |
+| Average Turnaround Time  | 8.00  |
+| CPU Utilization          | 100%  |
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Round Robin
+This preemptive algorithm assigns a small unit of CPU time, called a quantum, to each process in a cyclic fashion.
+
+Example Input Processes (with a Quantum of 2)
+| Process | Arrival Time | Burst Time |
+|---------|--------------|------------|
+| P1      | 0            | 10         |
+| P2      | 2            | 5          |
+| P3      | 4            | 8          |
+
+Simulation Results
+| Metric                   | Value  |
+|--------------------------|--------|
+| Average Waiting Time     | 10.00  |
+| Average Turnaround Time  | 17.67  |
+| CPU Utilization          | 100%   |
+
+🎨 Theme Support
+🌞 Light Mode
+
+🌙 Dark Mode
+
+🖤 Matte Mode (minimal black & white aesthetic)
+
+You can toggle themes using the theme button in the top navigation bar.
+
+🤝 Contribution
+Contributions are welcome!
+
+Fork the repo
+
+Create a feature branch
+
+Submit a Pull Request 🚀
+
+📜 License
+This project is licensed under the MIT License.
+
+👨‍💻 Author
+Developed by Abhay Porwal ✨

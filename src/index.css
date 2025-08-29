@@ -222,24 +222,40 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-background text-foreground font-sans;
-    font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+  /* Sidebar styles */
+  .sidebar {
+    @apply bg-[hsl(var(--sidebar-background))] text-[hsl(var(--sidebar-foreground))];
   }
 
-  .font-sans {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Force links and items visible */
+  .sidebar a,
+  .sidebar button,
+  .sidebar li {
+    @apply text-[hsl(var(--sidebar-foreground))] transition-colors;
+  }
+
+  /* Hover state */
+  .sidebar a:hover,
+  .sidebar button:hover,
+  .sidebar li:hover {
+    @apply text-[hsl(var(--sidebar-primary))];
+  }
+
+  /* Active item */
+  .sidebar .active {
+    @apply text-[hsl(var(--sidebar-primary))] font-semibold;
+  }
+
+  /* Section titles */
+  .sidebar h2,
+  .sidebar h3 {
+    @apply text-[hsl(var(--sidebar-foreground))] font-bold uppercase tracking-wide;
   }
 }
-
 @layer utilities {
   .text-gradient {
     background: var(--gradient-primary);
@@ -277,14 +293,4 @@
   .border-process-5 { border-color: hsl(var(--process-5)); }
   .border-process-6 { border-color: hsl(var(--process-6)); }
   .border-process-7 { border-color: hsl(var(--process-7)); }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
 }
