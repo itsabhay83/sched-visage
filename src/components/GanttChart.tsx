@@ -138,7 +138,7 @@ export function GanttChart() {
                           duration: 0.3,
                           ease: "easeOut"
                         }}
-                        className="absolute top-0 h-12 rounded border-2 border-background shadow-sm flex items-center justify-center text-sm font-medium text-white"
+                        className="absolute top-0 h-12 rounded border-2 border-background shadow-sm flex items-center justify-center text-sm font-medium text-primary-foreground"
                         style={{
                           left: item.startTime * timeUnit,
                           width: (item.endTime - item.startTime) * timeUnit,

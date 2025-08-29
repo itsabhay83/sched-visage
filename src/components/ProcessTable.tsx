@@ -198,7 +198,7 @@ export function ProcessTable() {
                       <TableCell>
                         <Badge 
                           variant={process.isCompleted ? "default" : "outline"}
-                          className={process.isCompleted ? "bg-success text-white" : ""}
+                          className={process.isCompleted ? "bg-success text-success-foreground" : ""}
                         >
                           {process.isCompleted ? 'Completed' : 'Ready'}
                         </Badge>
